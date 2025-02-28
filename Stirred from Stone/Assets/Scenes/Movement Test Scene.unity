@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7e1e5781d39549148abcbf66c428df00, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -94,7 +94,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 20201, guid: 0000000000000000f000000000000000, type: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 6116331e951a8464aba5eb882c801066, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 64515568}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 80536734}
   - component: {fileID: 80536735}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -209,7 +209,7 @@ GameObject:
   - component: {fileID: 99534678}
   - component: {fileID: 99534680}
   - component: {fileID: 99534679}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 170340398}
   - component: {fileID: 170340397}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stance Vignette
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -390,7 +390,7 @@ GameObject:
   m_Component:
   - component: {fileID: 226539302}
   - component: {fileID: 226539301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Spring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -492,7 +492,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole (4)
@@ -781,7 +781,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj6
@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 341985883}
   - component: {fileID: 341985885}
   - component: {fileID: 341985884}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
@@ -1129,7 +1129,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden plank 3 (1)
@@ -1273,7 +1273,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden plank 4
@@ -1293,7 +1293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 521535993}
   - component: {fileID: 521535992}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -1399,7 +1399,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole (5)
@@ -1548,7 +1548,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden plank 3 (2)
@@ -1660,6 +1660,132 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1001 &621021960
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.651
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.552
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 11.007
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_Name
+      value: key
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 621021963}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 621021962}
+  m_SourcePrefab: {fileID: 100100000, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+--- !u!1 &621021961 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 87a2f7b922cd54a9f8d92aea8964a895, type: 3}
+  m_PrefabInstance: {fileID: 621021960}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &621021962
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621021961}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.1
+  m_Center: {x: -0.00019168667, y: 0.005837167, z: -0.00004327601}
+--- !u!65 &621021963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621021961}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.025563164, y: 0.062033385, z: 0.0041366704}
+  m_Center: {x: -0.00019168667, y: 0.005837167, z: -0.00004327601}
 --- !u!1001 &650869661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1723,7 +1849,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj4
@@ -1826,7 +1952,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole (1)
@@ -1848,7 +1974,7 @@ GameObject:
   - component: {fileID: 745461807}
   - component: {fileID: 745461806}
   - component: {fileID: 745461809}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2271,7 +2397,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole
@@ -2393,7 +2519,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden plank
@@ -2466,7 +2592,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden plank 2
@@ -2486,7 +2612,7 @@ GameObject:
   m_Component:
   - component: {fileID: 960203637}
   - component: {fileID: 960203636}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Lean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2589,7 +2715,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole (7)
@@ -2662,7 +2788,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj7
@@ -3159,7 +3285,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj8
@@ -3262,7 +3388,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj3
@@ -3473,7 +3599,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole (3)
@@ -3493,7 +3619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1302529371}
   - component: {fileID: 1302529372}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3595,7 +3721,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden pole (1)
@@ -3664,7 +3790,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden plank 3
@@ -3683,7 +3809,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1411015431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CameraTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3768,7 +3894,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj
@@ -3790,7 +3916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1682984830}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: FX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3980,7 +4106,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj2
@@ -4083,7 +4209,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole (2)
@@ -4156,7 +4282,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden pole (3)
@@ -4308,7 +4434,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden pole (2)
@@ -4381,7 +4507,7 @@ PrefabInstance:
     - target: {fileID: -7635826562936255635, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: -905690159841262435, guid: 8ab5b89188e69421098f8df8fcc5c1dc, type: 3}
+      objectReference: {fileID: 2100000, guid: 924f4af70c9db45ab84bd59248cee53c, type: 2}
     - target: {fileID: 919132149155446097, guid: c4019408921864e5bad6684ebee63afe, type: 3}
       propertyPath: m_Name
       value: Bell_obj5
@@ -4484,7 +4610,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: diagonal pole (6)
@@ -4559,7 +4685,7 @@ Terrain:
   m_StaticShadowCaster: 0
   m_IgnoreQualitySettings: 0
   m_ReflectionProbeUsage: 1
-  m_MaterialTemplate: {fileID: 2100000, guid: 594ea882c5a793440b60ff72d896021e, type: 2}
+  m_MaterialTemplate: {fileID: 2100000, guid: 90ae77da0694d42dd9731c1108ac5043, type: 2}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -4650,7 +4776,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: e980c5c2a29794217acc534f047101cb, type: 2}
+      objectReference: {fileID: 2100000, guid: dc320b887b2ad41008f138db51c48a12, type: 2}
     - target: {fileID: 919132149155446097, guid: 8d62c24f39eb541a880877387a82134c, type: 3}
       propertyPath: m_Name
       value: wooden pole
@@ -4702,3 +4828,4 @@ SceneRoots:
   - {fileID: 438569070}
   - {fileID: 582427311}
   - {fileID: 483975321}
+  - {fileID: 621021960}

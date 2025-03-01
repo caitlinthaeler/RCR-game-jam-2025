@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class ObjectDetector : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class ObjectDetector : MonoBehaviour
     {
         get { return detectedObject; }
     }
+    public CrosshairText crosshairText;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,6 +28,7 @@ public class ObjectDetector : MonoBehaviour
         if (Physics.Raycast(ray, out hit, detectionDistance, layersToDetect))
         {
             detectedObject = hit.collider.gameObject;
+            crosshairText.SetText("Press 'E' to interact with " + detectedObject.name);
             Debug.Log("Detected object: " + detectedObject.name);
             crosshair.color = Color.green;
         }
@@ -33,6 +36,7 @@ public class ObjectDetector : MonoBehaviour
         {
             detectedObject = null;
             crosshair.color = Color.white;
+            crosshairText.SetText("");
         }
     }
 }

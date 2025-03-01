@@ -9,6 +9,7 @@ public class InventoryUI : MonoBehaviour
     // Update the inventory UI with item sprites
     public void UpdateInventoryUI(List<ItemObject> itemObjects)
     {
+        Debug.Log($"itemCount {itemObjects.Count}");
         for (int i = 0; i < slotImages.Count; i++)
         {
             if (i < itemObjects.Count)

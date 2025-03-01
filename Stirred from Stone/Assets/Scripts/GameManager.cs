@@ -8,6 +8,16 @@ public class GameManager : MonoBehaviour
     public string NarraratorName = "Narrarator";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+     private void OnEnable()
+    {
+        stoneManager.OnStonesSealed += WinGame;
+    }
+
+    private void OnDisable()
+    {
+       stoneManager.OnStonesSealed -= WinGame;
+    }
     void Start()
     {
         
@@ -21,8 +31,6 @@ public class GameManager : MonoBehaviour
 
     void WinGame()
     {
-        //remove barrier
-        Debug.Log("The curse has been sealed away once more!");
-        dialogueManager.AddDialogue(NarraratorName, "The curse has been sealed away once more!");
+        dialogueManager.AddDialogue(NarraratorName, "You have brought back all the stones. The curse has been lifted. You have won the game!");
     }
 }

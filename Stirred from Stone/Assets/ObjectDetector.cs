@@ -29,7 +29,6 @@ public class ObjectDetector : MonoBehaviour
         {
             detectedObject = hit.collider.gameObject;
             crosshairText.SetText("Press 'E' to interact with " + detectedObject.name);
-            Debug.Log("Detected object: " + detectedObject.name);
             crosshair.color = Color.green;
         }
         else

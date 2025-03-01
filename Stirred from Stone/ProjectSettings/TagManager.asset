@@ -14,7 +14,7 @@ TagManager:
   - interactableNonCollision
   - Player
   - interactableCollision
-  - 
+  - noninteractable
   - 
   - 
   - 

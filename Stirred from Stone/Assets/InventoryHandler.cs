@@ -12,6 +12,7 @@ public class InventoryHandler : MonoBehaviour
 
     void Start(){
         items = new List<ItemObject>();
+        inventoryUI.UpdateInventoryUI(items);
     }
 
     private void Awake()
@@ -33,6 +34,15 @@ public class InventoryHandler : MonoBehaviour
         else
         {
             Debug.Log("Inventory full!");
+        }
+    }
+
+     public void RemoveItem(int i)
+    {
+        if (i < items.Count)
+        {
+            items.RemoveAt(i);
+            inventoryUI.UpdateInventoryUI(items);
         }
     }
 

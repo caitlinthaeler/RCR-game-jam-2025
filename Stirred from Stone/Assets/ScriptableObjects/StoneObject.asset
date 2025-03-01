@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f1f2b77c8b8459e9372c4c45ae7976, type: 3}
   m_Name: StoneObject
   m_EditorClassIdentifier: 
-  itemName: 
-  itemMaterial: {fileID: 0}
+  itemName: Stone
   itemDescription: 
-  itemPrefab: {fileID: 0}
+  itemIcon: {fileID: 21300000, guid: acb10c151fc5f4fb78c2a4e9ac663277, type: 3}
+  itemPrefab: {fileID: 8576987323175496934, guid: 49b9a187855484fee9a22acf08bbf43a, type: 3}

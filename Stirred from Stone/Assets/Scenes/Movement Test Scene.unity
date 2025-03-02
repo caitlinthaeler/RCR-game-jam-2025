@@ -1415,7 +1415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   crosshair: {fileID: 2052463290}
-  detectionDistance: 2.5
+  detectionDistance: 3
   layersToDetect:
     serializedVersion: 2
     m_Bits: 320

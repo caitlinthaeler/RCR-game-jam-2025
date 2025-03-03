@@ -39,8 +39,10 @@ public class ObjectDetector : MonoBehaviour
                 // detecting new object
                 detectedObject = hitObject;
                 ApplyOverlay(detectedObject);
-
-                crosshairText.SetText("Press 'E' to interact with " + detectedObject.name);
+                if (detectedObject.GetComponent<IInteractable>() != null)
+                {
+                    ProvideDetails(detectedObject.GetComponent<IInteractable>());
+                }
                 crosshair.color = Color.green;
 
             }
@@ -54,7 +56,6 @@ public class ObjectDetector : MonoBehaviour
             }
             detectedObject = null;
             crosshair.color = Color.white;
-            crosshairText.SetText("");
         }
     }
 
@@ -78,5 +79,10 @@ public class ObjectDetector : MonoBehaviour
             // Reset the emission color to black (or transparent effect)
             renderer.material.SetColor("_EmissionColor", Color.black);
         }
+    }
+
+    public void ProvideDetails(IInteractable interactable)
+    {
+        crosshairText.DisplayText(interactable);
     }
 }

@@ -14,7 +14,7 @@ public class InputHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetMouseButtonDown(0))
         {
             // Check if the player is looking at a stone
             // If the player is looking at a stone, call the ReturnStone method on the StoneManager
@@ -24,6 +24,7 @@ public class InputHandler : MonoBehaviour
                 IInteractable interactable = objectDetector.DetectedObject.GetComponent<IInteractable>();
                 if (interactable != null)
                 {
+                    objectDetector.ProvideDetails(interactable);
                     Debug.Log($"Interacted with: {interactable.Name}");
                     interactable.Interact();
             //     }
@@ -67,6 +68,17 @@ public class InputHandler : MonoBehaviour
         }
 
         //
+        else if (Input.GetKeyDown(KeyCode.E) && objectDetector.DetectedObject != null)
+        {
+            // Check if the player is looking at a stone receptacle
+            // If the player is looking at a stone receptacle, call the ReturnStone method on the StoneManager
+            // If the player is looking at a stone receptacle, call the SetText method on the CrosshairText
+            MonoBehaviour detectedComponent = objectDetector.DetectedObject.GetComponent<MonoBehaviour>();
+            if (detectedComponent is ICollectable collectable)
+            {
+                collectable.Pickup();
+            }
+        }
 
         else // check if a number has been pressed for inventory
         {

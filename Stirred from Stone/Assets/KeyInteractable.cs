@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class StoneInteractable : MonoBehaviour, ICollectable
+public class KeyInteractable : MonoBehaviour, ICollectable
 {
     public ItemObject itemObject;
     public string Name => itemObject.itemName;

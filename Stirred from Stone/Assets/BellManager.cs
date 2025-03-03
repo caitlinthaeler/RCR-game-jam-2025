@@ -2,17 +2,36 @@ using UnityEngine;
 using System;
 using System.Collections.Generic;
 
+[System.Serializable]
+public class BellSelection
+{
+    [Range(1, 8)]
+    public int nextBell;
+}
+
 public class BellManager : MonoBehaviour
 {
     public static BellManager Instance { get; private set; }
     public event Action OnBellsRungInCorrectOrder;
-    public List<int> bellOrder;
+    public List<BellSelection> bellOrder;
     private int bellIndex;
+
+    private void Awake()
+{
+    if (Instance == null)
+    {
+        Instance = this;
+    }
+    else
+    {
+        Destroy(gameObject);
+    }
+}
+
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bellOrder = new List<int>();
         bellIndex = 0;
     }
 
@@ -24,19 +43,18 @@ public class BellManager : MonoBehaviour
 
     public void RingBell(int bellNumber)
     {
-        return;
-    //     DialogueManager.Instance.AddActionDialogue($"You rang bell {bellNumber}.");
-    //     if (bellNumber == bellOrder[bellIndex])
-    //     {
-    //         bellIndex++;
-    //         if (bellIndex == bellOrder.Count)
-    //         {
-    //             OnBellsRungInCorrectOrder?.Invoke();
-    //         }
-    //     }
-    //     else
-    //     {
-    //         bellIndex = 0;
-    //     }
+        DialogueManager.Instance.AddActionDialogue($"You rang bell {bellNumber}.");
+        if (bellNumber == bellOrder[bellIndex].nextBell)
+        {
+            bellIndex++;
+            if (bellIndex == bellOrder.Count)
+            {
+                OnBellsRungInCorrectOrder?.Invoke();
+            }
+        }
+        else
+        {
+            bellIndex = 0;
+        }
     }
 }

@@ -24,7 +24,6 @@ public class InputHandler : MonoBehaviour
                 IInteractable interactable = objectDetector.DetectedObject.GetComponent<IInteractable>();
                 if (interactable != null)
                 {
-                    objectDetector.ProvideDetails(interactable);
                     Debug.Log($"Interacted with: {interactable.Name}");
                     interactable.Interact();
             //     }

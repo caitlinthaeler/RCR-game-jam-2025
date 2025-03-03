@@ -8667,7 +8667,7 @@ PrefabInstance:
     - target: {fileID: 986758628232183648, guid: e7469a812bd364586b52a984ed0bc571, type: 3}
       propertyPath: bellObject
       value: 
-      objectReference: {fileID: 11400000, guid: 41979bf932cd0499bbf6cbbd39056dcd, type: 2}
+      objectReference: {fileID: 11400000, guid: d347011fd06544f88a592e4cb824ce26, type: 2}
     - target: {fileID: 7768863834040472997, guid: e7469a812bd364586b52a984ed0bc571, type: 3}
       propertyPath: m_Name
       value: Bell1

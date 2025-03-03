@@ -11,10 +11,10 @@ TagManager:
   - 
   - Water
   - UI
-  - NoPlayerCollision
+  - interactableNonCollision
   - Player
-  - 
-  - 
+  - interactableCollision
+  - noninteractable
   - 
   - 
   - 

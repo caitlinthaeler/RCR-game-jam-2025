@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: BellObject7
+  m_EditorClassIdentifier: Assembly-CSharp::BellObject
+  itemName: Bell 7
+  BellNumber: 7
+  audioFile: {fileID: 8300000, guid: 2e45067ca1ab441c59dfc5a46823f1b0, type: 3}

@@ -27,10 +27,12 @@ public class ObjectDetector : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, detectionDistance, layersToDetect))
         {
+            Debug.Log($"Hit object: {hit.collider.gameObject.name}");
             GameObject hitObject = hit.collider.gameObject;
             
             if (detectedObject != hitObject)
             {
+                Debug.Log("new object hit");
                 // changing objects
                 if (detectedObject != null)
                 {

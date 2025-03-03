@@ -22,47 +22,17 @@ public class InputHandler : MonoBehaviour
             if (objectDetector.DetectedObject != null)
             {
                 IInteractable interactable = objectDetector.DetectedObject.GetComponent<IInteractable>();
+                Debug.Log($"Interactable: {interactable}");
                 if (interactable != null)
                 {
                     Debug.Log($"Interacted with: {interactable.Name}");
                     interactable.Interact();
-            //     }
-            //     switch (objectDetector.DetectedObject.Name)
-            //     {
-            //         case "Bell":
-            //             break;
-            //         case "Candle":
-            //             break;
-            //         case "Door":
-            //             break;
-            //         case "Chalice":
-            //             break;
-            //         case "Statue":
-            //             break;
-            //         case "Note":
-            //             break;
-            //         case "HolyWater":
-            //             break;
-            //         case "Paper":
-            //             break;
-            //         case "Stone":
-            //             break;
-            //         case "Book":
-            //             break;
-            //         case "Key":
-            //             break;
-            //         case "Lighter":
-            //             break;
-            //         case "BellStriker":
-            //             break;
-            //         default:
-            //             break;
-            //    }
                  }
             }
             else {
                 //try to use item
                 //ex. read note
+                Debug.Log("No object detected");
             }
         }
 

@@ -24,18 +24,19 @@ public class BellManager : MonoBehaviour
 
     public void RingBell(int bellNumber)
     {
-        DialogueManager.Instance.AddActionDialogue($"You rang bell {bellNumber}.");
-        if (bellNumber == bellOrder[bellIndex])
-        {
-            bellIndex++;
-            if (bellIndex == bellOrder.Count)
-            {
-                OnBellsRungInCorrectOrder?.Invoke();
-            }
-        }
-        else
-        {
-            bellIndex = 0;
-        }
+        return;
+    //     DialogueManager.Instance.AddActionDialogue($"You rang bell {bellNumber}.");
+    //     if (bellNumber == bellOrder[bellIndex])
+    //     {
+    //         bellIndex++;
+    //         if (bellIndex == bellOrder.Count)
+    //         {
+    //             OnBellsRungInCorrectOrder?.Invoke();
+    //         }
+    //     }
+    //     else
+    //     {
+    //         bellIndex = 0;
+    //     }
     }
 }

@@ -29,6 +29,7 @@ public class CrosshairText : MonoBehaviour
 
     public void DisplayText(IInteractable interactable)
     {
+        Debug.Log("Displaying text for crosshair");
         SetText(interactable.Name);
         textBox.alpha = 1f; // Ensure text is fully visible
 

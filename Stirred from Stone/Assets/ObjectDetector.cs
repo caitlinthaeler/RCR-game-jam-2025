@@ -5,7 +5,7 @@ using System;
 public class ObjectDetector : MonoBehaviour
 {
     public Image crosshair;
-    public float detectionDistance = 10f;
+    public float detectionDistance = 3f;
     public LayerMask layersToDetect;
 
     private GameObject detectedObject;

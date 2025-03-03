@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 0}
   m_Name: BellObject2
   m_EditorClassIdentifier: Assembly-CSharp::BellObject
-  itemName: 
-  BellNumber: 0
-  audioFile: {fileID: 0}
+  itemName: Bell 2
+  BellNumber: 2
+  audioFile: {fileID: 8300000, guid: c6b027f99fe364350836e918ecf4552b, type: 3}

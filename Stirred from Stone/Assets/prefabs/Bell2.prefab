@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9873e77815f7944cfb539a5585412ed7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bellObject: {fileID: 0}
+  bellObject: {fileID: 11400000, guid: b1e66d8bc3bd1479187cd3b14306b0f4, type: 2}
 --- !u!1 &5997148190082493418 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: c4019408921864e5bad6684ebee63afe, type: 3}

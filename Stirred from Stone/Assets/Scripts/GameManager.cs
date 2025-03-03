@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
 
     public StoneManager stoneManager;
+    public BellManager bellManager;
     public DialogueManager dialogueManager;
     public string NarraratorName = "Narrarator";
 
@@ -11,11 +12,17 @@ public class GameManager : MonoBehaviour
 
      private void OnEnable()
     {
+        bellManager.OnBellsRungInCorrectOrder += BellsEvent;
+        // windowsill
+        // book
+        // crypt
+        // graveyard
         stoneManager.OnStonesSealed += WinGame;
     }
 
     private void OnDisable()
     {
+    bellManager.OnBellsRungInCorrectOrder -= BellsEvent;
        stoneManager.OnStonesSealed -= WinGame;
     }
     void Start()
@@ -27,6 +34,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void BellsEvent()
+    {
+        dialogueManager.AddDialogue(NarraratorName, "You have rung the bells in a particular order. It seems like the draft has disappeared in the main hall");
     }
 
     void WinGame()

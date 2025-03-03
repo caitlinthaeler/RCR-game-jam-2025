@@ -4,9 +4,15 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager Instance { get; private set; }
     public string dialogueText;
     public string speakerName;
     public TextMeshProUGUI textBox;
+    private void Awake()
+    {
+        Instance = this;
+    }
+    // St
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

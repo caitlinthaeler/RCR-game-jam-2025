@@ -24,7 +24,7 @@ public class BellTowerDoorInteractable : MonoBehaviour, IInteractable
                 if (itemObject != null && itemObject.itemName == "Key")
                 {
                     UnlockDoor();
-                    break;
+                    return;
                 }
             }
             DialogueManager.Instance.AddActionDialogue("This door is locked");

@@ -31,6 +31,7 @@ public class CrosshairText : MonoBehaviour
     {
         Debug.Log("Displaying text for crosshair");
         SetText(interactable.Name);
+        Debug.Log("Set the text");
         textBox.alpha = 1f; // Ensure text is fully visible
 
         if (fadeCoroutine != null)

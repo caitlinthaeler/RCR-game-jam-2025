@@ -6,6 +6,8 @@ public class StoneRecptacleInteractable : MonoBehaviour, IInteractable
     public string Name => "Pictish Altar";
     public Vector3[] positions;
     public StoneManager stoneManager;
+    public AudioSource audioSource;
+    public AudioClip placeStoneSound;
 
     public void Interact()
     {
@@ -25,6 +27,10 @@ public class StoneRecptacleInteractable : MonoBehaviour, IInteractable
                     GameObject stone = Instantiate(itemObject.itemPrefab, spawnPosition, itemObject.itemPrefab.transform.rotation);
                     stone.GetComponent<BoxCollider>().enabled = false;
                     stone.layer = LayerMask.NameToLayer("interactableNonCollision");
+                    if (audioSource && placeStoneSound)
+                    {
+                        audioSource.PlayOneShot(placeStoneSound);
+                    }
                 }
             }
             for (int i = stonesToRemove.Count - 1; i >= 0; i--)

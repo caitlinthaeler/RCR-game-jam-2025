@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 983415846524750551}
   - component: {fileID: 8324907154904168723}
   - component: {fileID: 2265746971881955926}
+  - component: {fileID: 2836245049247108759}
   m_Layer: 0
   m_Name: old stone wall 3
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5819956987217189320}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70707864, y: -0.006328336, z: -0.006328295, w: 0.7070784}
+  m_LocalRotation: {x: -0.70707846, y: -0.0063310144, z: -0.0063310144, w: 0.70707846}
   m_LocalPosition: {x: -1.952, y: 0.5500598, z: 0.128}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2836245049247108759
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5819956987217189320}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.016, y: 0.009502492, z: 0.01}
+  m_Center: {x: -0.00004117749, y: 0.00008874479, z: -0.001}

@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.AI;
-using System.Collections.Generic;
 
 public class GhostController : MonoBehaviour
 {
@@ -18,6 +17,7 @@ public class GhostController : MonoBehaviour
     
     [Header("Behavior")]
     [SerializeField] private float timeToLosePlayer = 3f;
+    [SerializeField] private float memoryDuration = 2f; // How long the ghost can "remember" player movement after losing sight
     [SerializeField] private float searchDuration = 8f;
     [SerializeField] private float huntSpeedMultiplier = 1.5f;
     [SerializeField] private float normalSpeedMultiplier = 1f;
@@ -29,6 +29,7 @@ public class GhostController : MonoBehaviour
     private float nextPathUpdate;
     private Vector3 lastPlayerPos;
     private Vector3 lastKnownPlayerPos;
+    private Vector3 playerMoveDirection;
     private float timeSinceLastSeenPlayer;
     private float searchTimer;
     private float currentSearchRadius;
@@ -36,6 +37,8 @@ public class GhostController : MonoBehaviour
     private Vector3[] searchPoints;
     private int currentSearchPointIndex;
     private bool wasPlayerVisible;
+    private float timeSinceLastActualSight;
+    private bool hasLineOfSight;
     
     private enum GhostState
     {
@@ -92,7 +95,24 @@ public class GhostController : MonoBehaviour
             return;
         }
 
-        bool isPlayerVisible = CanSeePlayer();
+        bool actualLineOfSight = CheckLineOfSight();
+        bool isPlayerVisible = actualLineOfSight || (timeSinceLastActualSight < memoryDuration);
+        
+        // Update timing for actual line of sight
+        if (actualLineOfSight)
+        {
+            timeSinceLastActualSight = 0f;
+            hasLineOfSight = true;
+        }
+        else
+        {
+            timeSinceLastActualSight += Time.deltaTime;
+            if (timeSinceLastActualSight >= memoryDuration && hasLineOfSight)
+            {
+                hasLineOfSight = false;
+                Debug.Log("Ghost's memory of player movement has faded");
+            }
+        }
         
         // Debug visibility changes
         if (isPlayerVisible != wasPlayerVisible)
@@ -101,11 +121,12 @@ public class GhostController : MonoBehaviour
             wasPlayerVisible = isPlayerVisible;
         }
 
-        // Only update last known position if we can see the player
-        if (isPlayerVisible && lastPlayerPos != player.position)
+        // Track player movement direction when we have actual line of sight
+        if (actualLineOfSight && lastPlayerPos != player.position)
         {
+            playerMoveDirection = (player.position - lastPlayerPos).normalized;
             lastPlayerPos = player.position;
-            Debug.Log($"Updated last known player position: {lastPlayerPos}");
+            Debug.Log($"Updated player movement direction: {playerMoveDirection}");
         }
 
         switch (currentState)
@@ -156,9 +177,18 @@ public class GhostController : MonoBehaviour
             timeSinceLastSeenPlayer += Time.deltaTime;
             Debug.Log($"Time since last seen player: {timeSinceLastSeenPlayer:F1}s");
             
-            // Move to last known position when losing sight
-            if (agent.destination != lastKnownPlayerPos)
+            // Project where the player might have gone based on their last movement direction
+            Vector3 predictedPosition = lastKnownPlayerPos + playerMoveDirection * 5f; // Look 5 units ahead
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(predictedPosition, out hit, 5f, NavMesh.AllAreas))
             {
+                lastKnownPlayerPos = hit.position; // Update last known position to the predicted position
+                agent.SetDestination(hit.position);
+                Debug.Log($"Lost sight of player - moving to predicted position: {hit.position}");
+            }
+            else
+            {
+                // If can't find valid position ahead, just go to last known position
                 agent.SetDestination(lastKnownPlayerPos);
                 Debug.Log($"Lost sight of player - moving to last known position: {lastKnownPlayerPos}");
             }
@@ -168,10 +198,11 @@ public class GhostController : MonoBehaviour
             {
                 currentState = GhostState.Searching;
                 searchTimer = 0f;
+                currentSearchRadius = searchRadius * 0.5f; // Start with a smaller radius since we have a good idea where they went
                 agent.speed = baseSpeed * normalSpeedMultiplier;
                 GenerateSearchPoints();
                 currentSearchPointIndex = 0;
-                Debug.Log($"Lost player! Last known position: {lastKnownPlayerPos}");
+                Debug.Log($"Lost player! Starting focused search around predicted position");
             }
         }
     }
@@ -224,102 +255,40 @@ public class GhostController : MonoBehaviour
         // Use the current (possibly expanded) search radius
         int numPoints = Mathf.CeilToInt(currentSearchRadius / searchPointSpacing);
         searchPoints = new Vector3[numPoints * 2]; // Two circles of points
-        int validPointCount = 0;
-        
-        Debug.Log($"Generating search points around {lastKnownPlayerPos} with radius {currentSearchRadius:F1}");
 
-        // First, try to find points that are in the same "space" as the last known position
-        // Cast rays in all directions to find boundaries of the space
-        List<Vector3> validPoints = new List<Vector3>();
-        int numDirections = 16; // Number of rays to cast to find boundaries
-        
-        for (int i = 0; i < numDirections; i++)
+        // Weight the search points towards the direction the player was moving
+        Vector3 searchCenter = lastKnownPlayerPos + playerMoveDirection * (currentSearchRadius * 0.3f);
+        Debug.Log($"Generating {numPoints * 2} search points around {searchCenter} with radius {currentSearchRadius:F1}");
+
+        for (int i = 0; i < numPoints; i++)
         {
-            float angle = (2 * Mathf.PI * i) / numDirections;
-            Vector3 direction = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
+            float angle = (2 * Mathf.PI * i) / numPoints;
             
-            // Cast a ray to find walls/boundaries
-            RaycastHit hit;
-            if (Physics.Raycast(lastKnownPlayerPos, direction, out hit, currentSearchRadius))
+            // Inner circle at half the current radius
+            Vector3 innerPoint = searchCenter + new Vector3(
+                Mathf.Cos(angle) * (currentSearchRadius * 0.5f),
+                0,
+                Mathf.Sin(angle) * (currentSearchRadius * 0.5f)
+            );
+            
+            // Outer circle at full current radius
+            Vector3 outerPoint = searchCenter + new Vector3(
+                Mathf.Cos(angle) * currentSearchRadius,
+                0,
+                Mathf.Sin(angle) * currentSearchRadius
+            );
+
+            // Ensure points are on NavMesh
+            NavMeshHit hit;
+            if (NavMesh.SamplePosition(innerPoint, out hit, currentSearchRadius, NavMesh.AllAreas))
             {
-                // Found a boundary, place points along the ray before hitting the wall
-                float distanceToWall = hit.distance;
-                int pointsAlongRay = Mathf.CeilToInt(distanceToWall / searchPointSpacing);
-                
-                for (int j = 1; j < pointsAlongRay; j++)
-                {
-                    float distance = j * searchPointSpacing;
-                    if (distance < distanceToWall)
-                    {
-                        Vector3 point = lastKnownPlayerPos + direction * distance;
-                        NavMeshHit navHit;
-                        if (NavMesh.SamplePosition(point, out navHit, 1f, NavMesh.AllAreas))
-                        {
-                            validPoints.Add(navHit.position);
-                        }
-                    }
-                }
+                searchPoints[i] = hit.position;
+            }
+            if (NavMesh.SamplePosition(outerPoint, out hit, currentSearchRadius, NavMesh.AllAreas))
+            {
+                searchPoints[i + numPoints] = hit.position;
             }
         }
-
-        // Add points in a grid pattern within the enclosed space
-        for (float x = -currentSearchRadius; x <= currentSearchRadius; x += searchPointSpacing)
-        {
-            for (float z = -currentSearchRadius; z <= currentSearchRadius; z += searchPointSpacing)
-            {
-                Vector3 point = lastKnownPlayerPos + new Vector3(x, 0, z);
-                
-                // Check if point is within radius
-                if (Vector3.Distance(point, lastKnownPlayerPos) <= currentSearchRadius)
-                {
-                    // Check if point is in the same space (no walls between it and last known position)
-                    Vector3 direction = (point - lastKnownPlayerPos).normalized;
-                    float distance = Vector3.Distance(lastKnownPlayerPos, point);
-                    
-                    RaycastHit hit;
-                    if (!Physics.Raycast(lastKnownPlayerPos, direction, out hit, distance))
-                    {
-                        // No wall between points, check if it's on NavMesh
-                        NavMeshHit navHit;
-                        if (NavMesh.SamplePosition(point, out navHit, 1f, NavMesh.AllAreas))
-                        {
-                            validPoints.Add(navHit.position);
-                        }
-                    }
-                }
-            }
-        }
-
-        // Convert valid points to array
-        searchPoints = validPoints.ToArray();
-        
-        // If we found too few points inside, add some points outside as fallback
-        if (searchPoints.Length < numPoints)
-        {
-            Debug.Log($"Found only {searchPoints.Length} points inside, adding outside points");
-            List<Vector3> allPoints = new List<Vector3>(validPoints);
-            
-            // Add circular pattern outside
-            for (int i = 0; i < numPoints; i++)
-            {
-                float angle = (2 * Mathf.PI * i) / numPoints;
-                Vector3 point = lastKnownPlayerPos + new Vector3(
-                    Mathf.Cos(angle) * currentSearchRadius,
-                    0,
-                    Mathf.Sin(angle) * currentSearchRadius
-                );
-                
-                NavMeshHit hit;
-                if (NavMesh.SamplePosition(point, out hit, currentSearchRadius, NavMesh.AllAreas))
-                {
-                    allPoints.Add(hit.position);
-                }
-            }
-            
-            searchPoints = allPoints.ToArray();
-        }
-
-        Debug.Log($"Generated {searchPoints.Length} search points, prioritizing enclosed space");
 
         // Shuffle the search points for more natural behavior
         for (int i = searchPoints.Length - 1; i > 0; i--)
@@ -331,7 +300,7 @@ public class GhostController : MonoBehaviour
         }
     }
 
-    private bool CanSeePlayer()
+    private bool CheckLineOfSight()
     {
         // Check if player is within detection range
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -354,15 +323,13 @@ public class GhostController : MonoBehaviour
 
         // Check for line of sight
         RaycastHit hit;
-        Vector3 rayStart = transform.position + Vector3.up * 0.5f; // Start slightly above ground
-        Vector3 rayEnd = player.position + Vector3.up * 0.5f; // Target slightly above ground
+        Vector3 rayStart = transform.position + Vector3.up * 0.5f;
+        Vector3 rayEnd = player.position + Vector3.up * 0.5f;
         Vector3 rayDirection = (rayEnd - rayStart).normalized;
         
-        // Use Physics.Raycast with all layers except the player layer
-        int layerMask = ~LayerMask.GetMask("Player"); // Invert the player layer mask to exclude it
+        int layerMask = ~LayerMask.GetMask("Player");
         if (Physics.Raycast(rayStart, rayDirection, out hit, detectionRange, layerMask))
         {
-            // If we hit something before reaching the player, line of sight is blocked
             float distanceToHit = Vector3.Distance(rayStart, hit.point);
             float rayDistanceToPlayer = Vector3.Distance(rayStart, rayEnd);
             
@@ -374,10 +341,14 @@ public class GhostController : MonoBehaviour
             }
         }
 
-        // If we didn't hit anything or hit the player, line of sight is clear
         Debug.DrawLine(rayStart, rayEnd, Color.green);
         Debug.Log($"Line of sight clear to player at {Vector3.Distance(rayStart, rayEnd):F1} units");
         return true;
+    }
+
+    private bool CanSeePlayer()
+    {
+        return hasLineOfSight || timeSinceLastActualSight < memoryDuration;
     }
 
     private void SetHuntingDestination()

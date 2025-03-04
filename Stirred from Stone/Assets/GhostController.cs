@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections.Generic;
 
 public class GhostController : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GhostController : MonoBehaviour
     [SerializeField] private float huntSpeedMultiplier = 1.5f;
     [SerializeField] private float normalSpeedMultiplier = 1f;
     [SerializeField] private float searchPointSpacing = 5f;
+    [SerializeField] private float searchExpansionRate = 1.5f; // How much to expand search radius over time
+    [SerializeField] private float playerDirectionInfluence = 0.3f; // How much to bias hunting towards player (0-1)
     
     private NavMeshAgent agent;
     private float nextPathUpdate;
@@ -28,6 +31,7 @@ public class GhostController : MonoBehaviour
     private Vector3 lastKnownPlayerPos;
     private float timeSinceLastSeenPlayer;
     private float searchTimer;
+    private float currentSearchRadius;
     private float baseSpeed;
     private Vector3[] searchPoints;
     private int currentSearchPointIndex;
@@ -195,17 +199,20 @@ public class GhostController : MonoBehaviour
         }
         else if (agent.remainingDistance <= agent.stoppingDistance)
         {
+            // Expand search radius over time
+            currentSearchRadius = searchRadius * (1 + (searchTimer / searchDuration) * searchExpansionRate);
+            
             // Move to next search point
             if (currentSearchPointIndex < searchPoints.Length)
             {
                 agent.SetDestination(searchPoints[currentSearchPointIndex]);
-                Debug.Log($"Moving to search point {currentSearchPointIndex + 1}/{searchPoints.Length} at {searchPoints[currentSearchPointIndex]}");
+                Debug.Log($"Moving to search point {currentSearchPointIndex + 1}/{searchPoints.Length} at {searchPoints[currentSearchPointIndex]}. Current search radius: {currentSearchRadius:F1}");
                 currentSearchPointIndex++;
             }
             else
             {
-                // If we've checked all points, generate new ones
-                Debug.Log("Completed search pattern, generating new points");
+                // If we've checked all points, generate new ones with expanded radius
+                Debug.Log($"Completed search pattern, generating new points with radius {currentSearchRadius:F1}");
                 GenerateSearchPoints();
                 currentSearchPointIndex = 0;
             }
@@ -214,41 +221,105 @@ public class GhostController : MonoBehaviour
 
     private void GenerateSearchPoints()
     {
-        // Generate search points in a pattern around the last known position
-        int numPoints = Mathf.CeilToInt(searchRadius / searchPointSpacing);
+        // Use the current (possibly expanded) search radius
+        int numPoints = Mathf.CeilToInt(currentSearchRadius / searchPointSpacing);
         searchPoints = new Vector3[numPoints * 2]; // Two circles of points
+        int validPointCount = 0;
+        
+        Debug.Log($"Generating search points around {lastKnownPlayerPos} with radius {currentSearchRadius:F1}");
 
-        Debug.Log($"Generating {numPoints * 2} search points around {lastKnownPlayerPos}");
-
-        for (int i = 0; i < numPoints; i++)
+        // First, try to find points that are in the same "space" as the last known position
+        // Cast rays in all directions to find boundaries of the space
+        List<Vector3> validPoints = new List<Vector3>();
+        int numDirections = 16; // Number of rays to cast to find boundaries
+        
+        for (int i = 0; i < numDirections; i++)
         {
-            float angle = (2 * Mathf.PI * i) / numPoints;
+            float angle = (2 * Mathf.PI * i) / numDirections;
+            Vector3 direction = new Vector3(Mathf.Cos(angle), 0, Mathf.Sin(angle));
             
-            // Inner circle
-            Vector3 innerPoint = lastKnownPlayerPos + new Vector3(
-                Mathf.Cos(angle) * (searchRadius * 0.5f),
-                0,
-                Mathf.Sin(angle) * (searchRadius * 0.5f)
-            );
-            
-            // Outer circle
-            Vector3 outerPoint = lastKnownPlayerPos + new Vector3(
-                Mathf.Cos(angle) * searchRadius,
-                0,
-                Mathf.Sin(angle) * searchRadius
-            );
-
-            // Ensure points are on NavMesh
-            NavMeshHit hit;
-            if (NavMesh.SamplePosition(innerPoint, out hit, searchRadius, NavMesh.AllAreas))
+            // Cast a ray to find walls/boundaries
+            RaycastHit hit;
+            if (Physics.Raycast(lastKnownPlayerPos, direction, out hit, currentSearchRadius))
             {
-                searchPoints[i] = hit.position;
-            }
-            if (NavMesh.SamplePosition(outerPoint, out hit, searchRadius, NavMesh.AllAreas))
-            {
-                searchPoints[i + numPoints] = hit.position;
+                // Found a boundary, place points along the ray before hitting the wall
+                float distanceToWall = hit.distance;
+                int pointsAlongRay = Mathf.CeilToInt(distanceToWall / searchPointSpacing);
+                
+                for (int j = 1; j < pointsAlongRay; j++)
+                {
+                    float distance = j * searchPointSpacing;
+                    if (distance < distanceToWall)
+                    {
+                        Vector3 point = lastKnownPlayerPos + direction * distance;
+                        NavMeshHit navHit;
+                        if (NavMesh.SamplePosition(point, out navHit, 1f, NavMesh.AllAreas))
+                        {
+                            validPoints.Add(navHit.position);
+                        }
+                    }
+                }
             }
         }
+
+        // Add points in a grid pattern within the enclosed space
+        for (float x = -currentSearchRadius; x <= currentSearchRadius; x += searchPointSpacing)
+        {
+            for (float z = -currentSearchRadius; z <= currentSearchRadius; z += searchPointSpacing)
+            {
+                Vector3 point = lastKnownPlayerPos + new Vector3(x, 0, z);
+                
+                // Check if point is within radius
+                if (Vector3.Distance(point, lastKnownPlayerPos) <= currentSearchRadius)
+                {
+                    // Check if point is in the same space (no walls between it and last known position)
+                    Vector3 direction = (point - lastKnownPlayerPos).normalized;
+                    float distance = Vector3.Distance(lastKnownPlayerPos, point);
+                    
+                    RaycastHit hit;
+                    if (!Physics.Raycast(lastKnownPlayerPos, direction, out hit, distance))
+                    {
+                        // No wall between points, check if it's on NavMesh
+                        NavMeshHit navHit;
+                        if (NavMesh.SamplePosition(point, out navHit, 1f, NavMesh.AllAreas))
+                        {
+                            validPoints.Add(navHit.position);
+                        }
+                    }
+                }
+            }
+        }
+
+        // Convert valid points to array
+        searchPoints = validPoints.ToArray();
+        
+        // If we found too few points inside, add some points outside as fallback
+        if (searchPoints.Length < numPoints)
+        {
+            Debug.Log($"Found only {searchPoints.Length} points inside, adding outside points");
+            List<Vector3> allPoints = new List<Vector3>(validPoints);
+            
+            // Add circular pattern outside
+            for (int i = 0; i < numPoints; i++)
+            {
+                float angle = (2 * Mathf.PI * i) / numPoints;
+                Vector3 point = lastKnownPlayerPos + new Vector3(
+                    Mathf.Cos(angle) * currentSearchRadius,
+                    0,
+                    Mathf.Sin(angle) * currentSearchRadius
+                );
+                
+                NavMeshHit hit;
+                if (NavMesh.SamplePosition(point, out hit, currentSearchRadius, NavMesh.AllAreas))
+                {
+                    allPoints.Add(hit.position);
+                }
+            }
+            
+            searchPoints = allPoints.ToArray();
+        }
+
+        Debug.Log($"Generated {searchPoints.Length} search points, prioritizing enclosed space");
 
         // Shuffle the search points for more natural behavior
         for (int i = searchPoints.Length - 1; i > 0; i--)
@@ -314,22 +385,18 @@ public class GhostController : MonoBehaviour
         Vector3 targetPosition;
         Vector3 directionToTarget;
         
-        if (CanSeePlayer())
-        {
-            // If we can see the player, hunt towards their position
-            targetPosition = player.position;
-            directionToTarget = (player.position - transform.position).normalized;
-            Debug.Log("Hunting towards visible player");
-        }
-        else
-        {
-            // If we can't see the player, hunt based on last known position
-            targetPosition = lastKnownPlayerPos;
-            directionToTarget = (lastKnownPlayerPos - transform.position).normalized;
-            Debug.Log("Hunting towards last known position");
-        }
+        // Blend between random direction and player direction based on playerDirectionInfluence
+        Vector3 randomDirection = Random.insideUnitSphere;
+        randomDirection.y = 0;
+        randomDirection.Normalize();
         
-        // Calculate a point with random offset
+        Vector3 towardsPlayer = (player.position - transform.position).normalized;
+        
+        // Blend the directions
+        directionToTarget = Vector3.Lerp(randomDirection, towardsPlayer, playerDirectionInfluence);
+        directionToTarget.Normalize();
+        
+        // Calculate target point with random offset
         float randomOffset = Random.Range(-huntRadius * 0.5f, huntRadius * 0.5f);
         Vector3 perpendicular = Vector3.Cross(directionToTarget, Vector3.up).normalized;
         Vector3 targetPoint = transform.position + directionToTarget * huntRadius + perpendicular * randomOffset;
@@ -339,7 +406,7 @@ public class GhostController : MonoBehaviour
         if (NavMesh.SamplePosition(targetPoint, out hit, huntRadius, NavMesh.AllAreas))
         {
             agent.SetDestination(hit.position);
-            Debug.Log($"Setting new hunting destination: {hit.position}");
+            Debug.Log($"Setting new hunting destination with {playerDirectionInfluence * 100:F0}% player influence: {hit.position}");
         }
     }
 }

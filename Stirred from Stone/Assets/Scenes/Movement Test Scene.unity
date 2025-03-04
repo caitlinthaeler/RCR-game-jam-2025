@@ -3581,6 +3581,8 @@ MonoBehaviour:
   huntSpeedMultiplier: 1.5
   normalSpeedMultiplier: 1
   searchPointSpacing: 5
+  searchExpansionRate: 1.5
+  playerDirectionInfluence: 0.6
 --- !u!195 &681861907
 NavMeshAgent:
   m_ObjectHideFlags: 0

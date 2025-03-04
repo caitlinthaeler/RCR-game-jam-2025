@@ -1,16 +1,21 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
+[RequireComponent(typeof(AudioSource))]
 public class BellTowerDoorInteractable : MonoBehaviour, IInteractable
 {
     
     public string Name => "Bell Tower Door";
-    private Animator animator;
+    private Animator doorAnimator;
     private bool isOpen = false;
+    public AudioSource audioSource;
+    public AudioClip doorUnlockingSound;
+    public AudioClip doorCreakingSound;
     
     void Start()
     {
-        animator = GetComponent<Animator>();
+        doorAnimator = GetComponent<Animator>();
     }
     
     public void Interact()
@@ -34,8 +39,34 @@ public class BellTowerDoorInteractable : MonoBehaviour, IInteractable
     public void UnlockDoor()
     {
         Debug.Log("Unlocking Bell Tower Door.");
+        
+        BellTowerDoorManager.Instance.DoorUnlocked();
+        if (doorUnlockingSound != null)
+        {
+            audioSource.PlayOneShot(doorUnlockingSound);
+            StartCoroutine(WaitForSoundThenOpenDoor(doorUnlockingSound.length));
+        } else {
+            OpenDoor();
+        }
+    }
+
+    public IEnumerator WaitForSoundThenOpenDoor(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        OpenDoor();
+    }
+
+    public void OpenDoor()
+    {
         isOpen = true;
-        animator.SetBool("isOpen", isOpen);
+        if (doorAnimator)
+        {
+            doorAnimator.SetBool("isOpen", isOpen);
+        }
+        if (doorCreakingSound != null)
+        {
+            audioSource.PlayOneShot(doorCreakingSound);
+        }
         BellTowerDoorManager.Instance.DoorUnlocked();
     }
 }

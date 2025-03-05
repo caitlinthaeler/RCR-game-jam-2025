@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:659d520c47ee16207ec5dac8aeae3cc919eeb7109b1b09576ac02061bf6ad4b3
-size 508
+fileFormatVersion: 2
+guid: 391e1ac2a4b71dc42ae1a24fabdc143a
+timeCreated: 1507247652
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 99131
+  packageName: Kinematic Character Controller
+  packageVersion: 3.4.4
+  assetPath: Assets/KinematicCharacterController/Walkthrough/11- Charging state/Scripts/MyPlayer.cs
+  uploadId: 505601

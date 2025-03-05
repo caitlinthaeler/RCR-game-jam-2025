@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:237193ed289d325f46cf6ae0e5b28a134daf43d2e5d339cd44049e22efbaa5b4
-size 523
+fileFormatVersion: 2
+guid: 8d44422eef151e74c8387f4da8838cf6
+timeCreated: 1507247652
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 99131
+  packageName: Kinematic Character Controller
+  packageVersion: 3.4.4
+  assetPath: Assets/KinematicCharacterController/Walkthrough/14- Climbing Ladders/Scripts/MyCharacterController.cs
+  uploadId: 505601

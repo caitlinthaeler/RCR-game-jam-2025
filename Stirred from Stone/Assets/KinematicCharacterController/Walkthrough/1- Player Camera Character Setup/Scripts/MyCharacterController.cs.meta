@@ -1,3 +1,20 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:c30ccf9f74be6740a3a835e32ea08fffcbbcf6faf67dc831a29d2b29cc0a25ff
-size 539
+fileFormatVersion: 2
+guid: 4b647278478c8694ab6b00ac51347de7
+timeCreated: 1507245023
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 99131
+  packageName: Kinematic Character Controller
+  packageVersion: 3.4.4
+  assetPath: Assets/KinematicCharacterController/Walkthrough/1- Player Camera Character
+    Setup/Scripts/MyCharacterController.cs
+  uploadId: 505601

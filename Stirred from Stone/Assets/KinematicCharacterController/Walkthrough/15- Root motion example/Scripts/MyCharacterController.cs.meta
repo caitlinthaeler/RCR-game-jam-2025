@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:578514f646fa77dc4a862ae5a950ad13033d79d37785d42fd8872adb0f86a19b
-size 526
+fileFormatVersion: 2
+guid: e96594aad710a0b43a67031fa15f8a06
+timeCreated: 1507247652
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 99131
+  packageName: Kinematic Character Controller
+  packageVersion: 3.4.4
+  assetPath: Assets/KinematicCharacterController/Walkthrough/15- Root motion example/Scripts/MyCharacterController.cs
+  uploadId: 505601

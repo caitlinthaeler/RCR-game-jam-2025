@@ -17,16 +17,16 @@ public class BellManager : MonoBehaviour
     private int bellIndex;
 
     private void Awake()
+{
+    if (Instance == null)
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Instance = this;
     }
+    else
+    {
+        Destroy(gameObject);
+    }
+}
 
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

@@ -25,5 +25,6 @@ public class CandleHolderInteractable : MonoBehaviour, ICollectable
         candle.SetParent(playerHoldPoint); // Attach to player's hold point
         candle.localPosition = Vector3.zero; // Align position
         candle.localRotation = Quaternion.identity; // Reset rotation
+        gameObject.GetComponent<MeshCollider>().enabled = false;
     }
 }

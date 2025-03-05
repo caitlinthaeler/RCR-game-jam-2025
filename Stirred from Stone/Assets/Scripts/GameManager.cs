@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
     public StoneManager stoneManager;
     public BellManager bellManager;
     public StatueManager statueManager;
+    AltarCandlesManager altarCandlesManager;
     public BellTowerDoorManager bellTowerDoorManager;
     public DialogueManager dialogueManager;
     public string NarraratorName = "Narrarator";

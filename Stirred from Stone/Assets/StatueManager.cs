@@ -20,6 +20,7 @@ public class StatueManager : MonoBehaviour
     }
     void Start()
     {
+        stone.GetComponent<BoxCollider>().enabled = false;
         openBookObj.SetActive(false);
     }
 

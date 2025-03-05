@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SongBookInteractable : MonoBehaviour
+public class SongBookInteractable : MonoBehaviour, ICollectable
 {
     public ItemObject itemObject;
     public string Name => itemObject.itemName;

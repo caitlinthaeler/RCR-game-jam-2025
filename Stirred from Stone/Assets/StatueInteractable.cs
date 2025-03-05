@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections;
 
 [RequireComponent(typeof(AudioSource))]
-public class StatueInteractable : MonoBehaviour
+public class StatueInteractable : MonoBehaviour, IInteractable
 {
     public string Name => "Singing Statue";
     
@@ -20,8 +20,10 @@ public class StatueInteractable : MonoBehaviour
             foreach (var item in InventoryHandler.Instance.items)
             {
                 ItemObject itemObject = item;
+                Debug.Log($"item name: {itemObject.itemName}");
                 if (itemObject != null && itemObject.itemName == "Song Book")
                 {
+                    Debug.Log("book is trying to be returned");
                     statueSatisfied = true;
                     Sing();
                     StatueManager.Instance.RevealStone();

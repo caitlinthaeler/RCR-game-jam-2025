@@ -25,6 +25,12 @@ public class GhostController : MonoBehaviour
     [SerializeField] private float searchExpansionRate = 1.5f; // How much to expand search radius over time
     [SerializeField] private float playerDirectionInfluence = 0.3f; // How much to bias hunting towards player (0-1)
     
+    [Header("Audio")]
+    [SerializeField] private AudioClip walkFootstep;
+    [SerializeField] private AudioClip runFootstep;
+    [SerializeField] private float walkStepInterval = 0.5f; // Time between footsteps when walking
+    [SerializeField] private float runStepInterval = 0.3f;  // Time between footsteps when running
+    
     private NavMeshAgent agent;
     private float nextPathUpdate;
     private Vector3 lastPlayerPos;
@@ -40,6 +46,11 @@ public class GhostController : MonoBehaviour
     private float timeSinceLastActualSight;
     private bool hasLineOfSight;
     
+    private AudioSource audioSource;
+    private float nextStepTime;
+    private float currentStepInterval;
+    private bool isRunning;
+    
     private enum GhostState
     {
         Hunting,
@@ -47,7 +58,7 @@ public class GhostController : MonoBehaviour
         Searching
     }
     private GhostState currentState = GhostState.Hunting;
-    
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -57,6 +68,15 @@ public class GhostController : MonoBehaviour
         {
             Debug.LogError("NavMeshAgent component missing from ghost!");
             return;
+        }
+
+        // Get or add AudioSource component
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            audioSource = gameObject.AddComponent<AudioSource>();
+            audioSource.spatialBlend = 1f; // 3D sound
+            audioSource.loop = false;
         }
 
         // Check if agent is on NavMesh
@@ -78,6 +98,8 @@ public class GhostController : MonoBehaviour
 
         baseSpeed = agent.speed;
         lastPlayerPos = player.position;
+        nextStepTime = 0f;
+        currentStepInterval = walkStepInterval;
         
         // Configure NavMeshAgent for better path following
         agent.updateRotation = true;
@@ -93,6 +115,34 @@ public class GhostController : MonoBehaviour
         {
             Debug.LogError("Ghost is not on NavMesh!");
             return;
+        }
+
+        // Update footstep timing based on current speed
+        float currentSpeed = agent.velocity.magnitude;
+        if (currentSpeed > 0.1f) // Only play footsteps if moving
+        {
+            // Determine if we're running based on speed
+            bool shouldBeRunning = currentSpeed > baseSpeed * 1.2f;
+            
+            // Update step interval and footstep type if running state changed
+            if (shouldBeRunning != isRunning)
+            {
+                isRunning = shouldBeRunning;
+                currentStepInterval = isRunning ? runStepInterval : walkStepInterval;
+                Debug.Log($"Footstep type changed to: {(isRunning ? "running" : "walking")}");
+            }
+            
+            // Play footstep if it's time
+            if (Time.time >= nextStepTime)
+            {
+                PlayFootstep();
+                nextStepTime = Time.time + currentStepInterval;
+            }
+        }
+        else
+        {
+            isRunning = false;
+            currentStepInterval = walkStepInterval;
         }
 
         bool actualLineOfSight = CheckLineOfSight();
@@ -170,6 +220,7 @@ public class GhostController : MonoBehaviour
             timeSinceLastSeenPlayer = 0f;
             lastKnownPlayerPos = player.position;
             agent.SetDestination(player.position);
+            agent.speed = baseSpeed * huntSpeedMultiplier;
             Debug.Log($"Chasing player at distance: {Vector3.Distance(transform.position, player.position)}");
         }
         else
@@ -378,6 +429,21 @@ public class GhostController : MonoBehaviour
         {
             agent.SetDestination(hit.position);
             Debug.Log($"Setting new hunting destination with {playerDirectionInfluence * 100:F0}% player influence: {hit.position}");
+        }
+    }
+
+    private void PlayFootstep()
+    {
+        if (audioSource == null || (walkFootstep == null && runFootstep == null)) return;
+
+        // Choose appropriate footstep sound based on running state
+        AudioClip footstepSound = isRunning ? runFootstep : walkFootstep;
+        
+        if (footstepSound != null)
+        {
+            audioSource.clip = footstepSound;
+            audioSource.pitch = 1f; // Keep pitch constant
+            audioSource.Play();
         }
     }
 }

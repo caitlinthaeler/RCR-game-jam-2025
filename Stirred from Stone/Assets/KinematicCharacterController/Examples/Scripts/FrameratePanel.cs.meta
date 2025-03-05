@@ -1,3 +1,19 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:64ea7e807b1f60ebdc4b3ddc3d8d7c34aca3af35e2846a9df451c1c3d819a06c
-size 492
+fileFormatVersion: 2
+guid: e404bfefdeb79904e847365ad9c6c205
+timeCreated: 1501357153
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 99131
+  packageName: Kinematic Character Controller
+  packageVersion: 3.4.4
+  assetPath: Assets/KinematicCharacterController/Examples/Scripts/FrameratePanel.cs
+  uploadId: 505601

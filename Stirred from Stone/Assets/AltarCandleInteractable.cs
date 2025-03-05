@@ -27,7 +27,7 @@ public class AltarCandleInteractable : MonoBehaviour, IInteractable
                 if (itemObject != null && itemObject.itemName == "Candle Holder")
                 {
                     LightCandle();
-                    AltarCandlesManager.Instance.CheckCandlesLit();
+                    AltarCandlesManager.Instance.CheckCandlesLit(1);
                     return;
                 }
             }
@@ -38,6 +38,7 @@ public class AltarCandleInteractable : MonoBehaviour, IInteractable
     {
         lit = true;
         flame.SetActive(true);
+        
         if (audioSource && lightingCandleSound)
         {
             audioSource.PlayOneShot(lightingCandleSound);

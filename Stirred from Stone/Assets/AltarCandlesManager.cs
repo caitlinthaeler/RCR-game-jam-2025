@@ -28,20 +28,13 @@ public class AltarCandlesManager : MonoBehaviour
         stone.GetComponent<BoxCollider>().enabled = false;
     }
 
-    public void MinusCandleslit()
+    public void CheckCandlesLit(int candleLit=0)
     {
-        candlesLit -= 1;
-    }
-
-    public void AddCandleslit()
-    {
-        candlesLit += 1;
-    }
-
-    public void CheckCandlesLit()
-    {
+        candlesLit += candleLit;
+        Debug.Log("checking candles are lit");
         if (!finishedLightingCandles && candlesLit == requiredLitCandles)
         {
+            Debug.Log("All candles are lit");
             OnAllCandlesLit.Invoke();
             if (audioSource && stoneRisingSound)
             {

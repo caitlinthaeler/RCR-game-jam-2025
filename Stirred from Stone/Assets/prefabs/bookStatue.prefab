@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stone: {fileID: 6632633547326591327}
   openBookObj: {fileID: 1606482892887946577}
-  stoneAnimator: {fileID: 0}
+  stoneAnimator: {fileID: 6630076069316253555}
 --- !u!1 &2367748913843728678
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,6 +173,7 @@ GameObject:
   - component: {fileID: 8186849036808956649}
   - component: {fileID: 2516492625417138093}
   - component: {fileID: 2620615960628023892}
+  - component: {fileID: 1886290790014349423}
   m_Layer: 8
   m_Name: statue
   m_TagString: Untagged
@@ -359,6 +360,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!64 &1886290790014349423
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5674817754208676856}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2432090755550338912, guid: 3c1dd2446aeab40cf86bcb85db193fee, type: 3}
 --- !u!1001 &6033021703420745956
 PrefabInstance:
   m_ObjectHideFlags: 0

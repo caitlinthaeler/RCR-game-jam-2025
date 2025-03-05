@@ -2687,7 +2687,7 @@ Transform:
   m_GameObject: {fileID: 521535991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.3, y: 16.6, z: 305.5}
+  m_LocalPosition: {x: -95.9, y: 17.9, z: 341.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15603,10 +15603,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: bookStatue
       objectReference: {fileID: 0}
-    - target: {fileID: 1423668497036813761, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
-      propertyPath: stoneAnimator
-      value: 
-      objectReference: {fileID: 4367311563592842289}
     - target: {fileID: 7236773786878805611, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.239
@@ -15652,11 +15648,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
---- !u!95 &4367311563592842289 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 6630076069316253555, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
-  m_PrefabInstance: {fileID: 4367311563592842288}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4717952521439295124
 Transform:
   m_ObjectHideFlags: 0

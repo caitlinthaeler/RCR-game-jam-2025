@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public BellTowerDoorManager bellTowerDoorManager;
     public DialogueManager dialogueManager;
     public GameObject barrier;
+    public AudioSource audioSource;
+    public AudioClip winMusic;
     public string NarraratorName = "Narrarator";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -95,5 +97,10 @@ public class GameManager : MonoBehaviour
     {
         dialogueManager.AddDialogue(NarraratorName, "You have brought back all the stones. The curse has been lifted. You have won the game!");
         barrier.SetActive(false);
+        
+        audioSource.clip = winMusic;
+        audioSource.loop = true; // Enable looping
+        audioSource.playOnAwake = true;
+        audioSource.Play(); // Start playing music
     }
 }

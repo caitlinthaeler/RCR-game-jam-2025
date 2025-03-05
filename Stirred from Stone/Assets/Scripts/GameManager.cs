@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviour
         audioSource.loop = true; // Enable looping
         audioSource.playOnAwake = true;
         audioSource.Play(); // Start playing music
+        UIManager.Instance.DisplayInfoCard("", "An ancient Pictish cross hangs within the shadows of St Machar’s Cathedral, its carvings older than memory itself. Some say it was once part of the original church that stood here in 580 AD, its stone steeped in secrets best left forgotten. Tonight is All Hallows’ Eve. The air is thick, heavy, as if the night itself holds its breath. You step up to the iron gates, their hinges groaning like something waking from a long slumber. Twin spires loom above, darker even than the night sky. A feeling, cold and crawling, grips your chest – an unshakable sense that you are being watched. And yet, you press forward. The entrance yawns open before you. (before the player can move, right at the start)", null);
     }
 
     // Update is called once per frame

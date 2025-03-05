@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject barrier;
     public AudioSource audioSource;
     public AudioClip winMusic;
+    public AudioClip howlingMusic;
     public string NarraratorName = "Narrarator";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -38,6 +39,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         barrier.SetActive(true);
+        audioSource.clip = howlingMusic;
+        audioSource.loop = true; // Enable looping
+        audioSource.playOnAwake = true;
+        audioSource.Play(); // Start playing music
     }
 
     // Update is called once per frame
@@ -97,10 +102,19 @@ public class GameManager : MonoBehaviour
     {
         dialogueManager.AddDialogue(NarraratorName, "You have brought back all the stones. The curse has been lifted. You have won the game!");
         barrier.SetActive(false);
+        ChangeToWinMusic();
+
         
-        audioSource.clip = winMusic;
-        audioSource.loop = true; // Enable looping
-        audioSource.playOnAwake = true;
-        audioSource.Play(); // Start playing music
+    }
+
+    void ChangeToWinMusic()
+    {
+        if (audioSource.isPlaying)
+        {
+            audioSource.Stop(); // Immediately stops the current music
+        }
+
+        audioSource.clip = winMusic; // Assign the new music
+        audioSource.Play(); 
     }
 }

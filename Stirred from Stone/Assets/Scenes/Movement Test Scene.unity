@@ -20705,6 +20705,7 @@ MonoBehaviour:
   barrier: {fileID: 1481677473496807778}
   audioSource: {fileID: 1228524543}
   winMusic: {fileID: 8300000, guid: 3861db609e40c4654b18ad49957dc6dd, type: 3}
+  howlingMusic: {fileID: 8300000, guid: 7c540ae8ea7e4422b93ed7928a32f392, type: 3}
   NarraratorName: Narrarator
 --- !u!4 &1228524542
 Transform:

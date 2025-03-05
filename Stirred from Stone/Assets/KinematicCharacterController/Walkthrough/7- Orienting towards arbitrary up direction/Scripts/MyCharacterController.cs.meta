@@ -1,20 +1,3 @@
-fileFormatVersion: 2
-guid: a5897ffdcb56cb34fad7242e28bb068f
-timeCreated: 1507246883
-licenseType: Store
-MonoImporter:
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 99131
-  packageName: Kinematic Character Controller
-  packageVersion: 3.4.4
-  assetPath: Assets/KinematicCharacterController/Walkthrough/7- Orienting towards
-    arbitrary up direction/Scripts/MyCharacterController.cs
-  uploadId: 505601
+version https://git-lfs.github.com/spec/v1
+oid sha256:b7169407471f9c325da9ddb1bc32f1b6a89d9da2cc79335cf14c4ecc633186ab
+size 550

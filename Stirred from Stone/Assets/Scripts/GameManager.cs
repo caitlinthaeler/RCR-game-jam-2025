@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public AltarCandlesManager altarCandlesManager;
     public BellTowerDoorManager bellTowerDoorManager;
     public DialogueManager dialogueManager;
+    public GameObject barrier;
     public string NarraratorName = "Narrarator";
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        
+        barrier.SetActive(true);
     }
 
     // Update is called once per frame
@@ -42,6 +43,8 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    
 
     // stone
     void BookEvent()
@@ -91,5 +94,6 @@ public class GameManager : MonoBehaviour
     void WinGame()
     {
         dialogueManager.AddDialogue(NarraratorName, "You have brought back all the stones. The curse has been lifted. You have won the game!");
+        barrier.SetActive(false);
     }
 }

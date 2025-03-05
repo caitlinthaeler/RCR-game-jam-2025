@@ -13,6 +13,7 @@ public class KeyInteractable : MonoBehaviour, ICollectable
     public void Pickup()
     {
         InventoryHandler.Instance.AddItem(itemObject);
+        //DialogueManager.Instance.AddActionDialogue("Oh, it looks like someone dropped this key while they were down here. I'll return it to the church later.");
         Destroy(gameObject);
     }
 }

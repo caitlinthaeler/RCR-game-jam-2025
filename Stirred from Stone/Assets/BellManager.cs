@@ -15,6 +15,7 @@ public class BellManager : MonoBehaviour
     public event Action OnBellsRungInCorrectOrder;
     public List<BellSelection> bellOrder;
     private int bellIndex;
+    public GameObject stone;
 
     private void Awake()
     {
@@ -32,6 +33,7 @@ public class BellManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        stone.SetActive(false);
         bellIndex = 0;
     }
 
@@ -49,6 +51,7 @@ public class BellManager : MonoBehaviour
             bellIndex++;
             if (bellIndex == bellOrder.Count)
             {
+                stone.SetActive(true);
                 OnBellsRungInCorrectOrder?.Invoke();
             }
         }

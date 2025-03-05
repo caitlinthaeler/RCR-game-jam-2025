@@ -7,16 +7,11 @@ public class BellTowerDoorInteractable : MonoBehaviour, IInteractable
 {
     
     public string Name => "Bell Tower Door";
-    private Animator doorAnimator;
+    public RotationAnimator rotationAnimator;
     private bool isOpen = false;
     public AudioSource audioSource;
     public AudioClip doorUnlockingSound;
     public AudioClip doorCreakingSound;
-    
-    void Start()
-    {
-        doorAnimator = GetComponent<Animator>();
-    }
     
     public void Interact()
     {
@@ -29,6 +24,7 @@ public class BellTowerDoorInteractable : MonoBehaviour, IInteractable
                 if (itemObject != null && itemObject.itemName == "Key")
                 {
                     UnlockDoor();
+                    
                     return;
                 }
             }
@@ -59,9 +55,9 @@ public class BellTowerDoorInteractable : MonoBehaviour, IInteractable
     public void OpenDoor()
     {
         isOpen = true;
-        if (doorAnimator)
+        if (rotationAnimator)
         {
-            doorAnimator.SetBool("isOpen", isOpen);
+            rotationAnimator.StartRotation();
         }
         if (doorCreakingSound != null)
         {

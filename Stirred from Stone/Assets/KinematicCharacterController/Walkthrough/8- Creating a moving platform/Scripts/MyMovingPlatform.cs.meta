@@ -1,20 +1,3 @@
-fileFormatVersion: 2
-guid: 0b6a0daf518d7f54f913855065b51001
-timeCreated: 1507247303
-licenseType: Store
-MonoImporter:
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 99131
-  packageName: Kinematic Character Controller
-  packageVersion: 3.4.4
-  assetPath: Assets/KinematicCharacterController/Walkthrough/8- Creating a moving
-    platform/Scripts/MyMovingPlatform.cs
-  uploadId: 505601
+version https://git-lfs.github.com/spec/v1
+oid sha256:8b6edd3d5ac7b987fbfd4b1e80c5192de15157cf0ac8867c1b397a97079bbeef
+size 531

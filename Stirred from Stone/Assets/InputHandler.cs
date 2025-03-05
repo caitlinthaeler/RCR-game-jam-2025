@@ -45,6 +45,7 @@ public class InputHandler : MonoBehaviour
             MonoBehaviour detectedComponent = objectDetector.DetectedObject.GetComponent<MonoBehaviour>();
             if (detectedComponent is ICollectable collectable)
             {
+                Debug.Log($"can pick up{collectable.Name}");
                 collectable.Pickup();
             }
         }

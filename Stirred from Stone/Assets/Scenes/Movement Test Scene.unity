@@ -699,7 +699,7 @@ Transform:
   m_GameObject: {fileID: 97253705}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.4, y: -0.09, z: 245.04}
+  m_LocalPosition: {x: 4.03, y: -0.09, z: 245}
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7943,7 +7943,7 @@ Transform:
   m_GameObject: {fileID: 795216813}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.41, y: -0.65, z: 247.52}
+  m_LocalPosition: {x: 4.04, y: -0.65, z: 247.48}
   m_LocalScale: {x: 4, y: 2, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9641,7 +9641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2078113243001073320, guid: 51ff2b77ca9234cfe81be34ee04dae08, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.49
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 2078113243001073320, guid: 51ff2b77ca9234cfe81be34ee04dae08, type: 3}
       propertyPath: m_LocalPosition.z
@@ -27668,7 +27668,7 @@ GameObject:
   - component: {fileID: 8423403095431484126}
   - component: {fileID: 8423403095431484125}
   - component: {fileID: 8423403095431484128}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coffinLid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -29149,7 +29149,7 @@ Transform:
   m_GameObject: {fileID: 6771405071512539514}
   serializedVersion: 2
   m_LocalRotation: {x: -0.5, y: -0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: -1.45, y: 0.89, z: 0.01}
+  m_LocalPosition: {x: -1.45, y: 0.471, z: 0.01}
   m_LocalScale: {x: 1.5, y: 2, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30799,6 +30799,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0625127c2078947dd8df554ef199cc90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementAnimator: {fileID: 8423403095431484126}
+  audioSource: {fileID: 8423403095431484125}
+  coffinOpeningSound: {fileID: 8300000, guid: b3b87f850d70742d785b287ff38e486a, type: 3}
 --- !u!1 &8457415519615230905
 GameObject:
   m_ObjectHideFlags: 0
@@ -31418,8 +31421,8 @@ Transform:
   m_GameObject: {fileID: 5170714396124838165}
   serializedVersion: 2
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0.39999998, z: 0}
-  m_LocalScale: {x: 250, y: 100, z: 60.000004}
+  m_LocalPosition: {x: -0, y: 0.46, z: 0}
+  m_LocalScale: {x: 250, y: 100, z: 40}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5459712572762336410}

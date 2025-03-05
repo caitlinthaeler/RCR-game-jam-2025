@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     {
         bellManager.OnBellsRungInCorrectOrder += BellsEvent;
         bellTowerDoorManager.OnBellTowerDoorUnlocked += BellTowerDoorOpenEvent;
+        altarCandlesManager.OnAllCandlesLit += CandlesEvent;
         // windowsill
         // book
         // crypt
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     {
         bellManager.OnBellsRungInCorrectOrder -= BellsEvent;
         bellTowerDoorManager.OnBellTowerDoorUnlocked -= BellTowerDoorOpenEvent;
+        altarCandlesManager.OnAllCandlesLit += CandlesEvent;
        stoneManager.OnStonesSealed -= WinGame;
     }
     void Start()
@@ -83,7 +85,7 @@ public class GameManager : MonoBehaviour
     // stone
     void CandlesEvent()
     {
-        dialogueManager.AddDialogue(NarraratorName, "You have lit all the candles. The room is now illuminated, and a mysterious box has appeared");
+        dialogueManager.AddDialogue(NarraratorName, "All candles have been lit!");
     }
 
     void WinGame()

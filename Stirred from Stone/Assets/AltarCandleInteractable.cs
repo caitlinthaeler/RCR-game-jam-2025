@@ -2,10 +2,13 @@ using UnityEngine;
 
 public class AltarCandleInteractable : MonoBehaviour, IInteractable
 {
-    public GameObject flame;
-    public bool lit = false;
+    private GameObject flame;
+    private bool lit = false;
     public ItemObject itemObject;
     public string Name => itemObject.itemName;
+    public AudioSource audioSource;
+    public AudioClip lightingCandleSound;
+    public AudioClip blowingCandleOutSound;
 
     private void Start()
     {
@@ -35,11 +38,19 @@ public class AltarCandleInteractable : MonoBehaviour, IInteractable
     {
         lit = true;
         flame.SetActive(true);
+        if (audioSource && lightingCandleSound)
+        {
+            audioSource.PlayOneShot(lightingCandleSound);
+        }
     }
 
     public void UnlightCandle()
     {
         lit = false;
         flame.SetActive(false);
+        if (audioSource && blowingCandleOutSound)
+        {
+            audioSource.PlayOneShot(blowingCandleOutSound);
+        }
     }
 }

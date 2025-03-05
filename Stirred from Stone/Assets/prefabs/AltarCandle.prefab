@@ -123,10 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59ffb8b8c1eb4a8096360a9173397bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHoldPoint: {fileID: 0}
-  flame: {fileID: 0}
-  lit: 0
-  itemObject: {fileID: 0}
+  itemObject: {fileID: 11400000, guid: 614353f39500040a48585ca599d082b5, type: 2}
 --- !u!64 &2521248015772975601
 MeshCollider:
   m_ObjectHideFlags: 0

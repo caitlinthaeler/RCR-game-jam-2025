@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72f1f2b77c8b8459e9372c4c45ae7976, type: 3}
   m_Name: AltarCandleObject
   m_EditorClassIdentifier: 
-  itemName: 
+  itemName: Altar Candle
   itemDescription: 
   itemIcon: {fileID: 0}
   itemPrefab: {fileID: 0}

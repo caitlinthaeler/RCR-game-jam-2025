@@ -1,20 +1,3 @@
-fileFormatVersion: 2
-guid: 0d61a6c592b89654bb126e173fa60ab7
-timeCreated: 1507246320
-licenseType: Store
-MonoImporter:
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 99131
-  packageName: Kinematic Character Controller
-  packageVersion: 3.4.4
-  assetPath: Assets/KinematicCharacterController/Walkthrough/5- Adding velocities
-    and impulses/Scripts/MyPlayer.cs
-  uploadId: 505601
+version https://git-lfs.github.com/spec/v1
+oid sha256:68620c1d597d6cf06f2e880f4fa254588ffbe356bba06dca65cc2ace2ebf3dd3
+size 527

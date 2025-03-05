@@ -20,6 +20,10 @@ public class CoffinInteractable : MonoBehaviour, IInteractable
             OpenCoffin();
             
         }
+        else
+        {
+            CloseCoffin();
+        }
     }
     public void OpenCoffin()
     {
@@ -33,9 +37,26 @@ public class CoffinInteractable : MonoBehaviour, IInteractable
             movementAnimator.StartMovement(OnRevealComplete);
         }
     }
+    public void CloseCoffin()
+    {
+        isOpen = false;
+        if (audioSource && coffinOpeningSound != null)
+        {
+            audioSource.PlayOneShot(coffinOpeningSound);
+        }
+        if (movementAnimator)
+        {
+            movementAnimator.ReverseMovement(OnRevealComplete);
+        }
+    }
 
     public void OnRevealComplete()
     {
         DialogueManager.Instance.AddActionDialogue("Oh great, it's a skeleton");
+    }
+
+    public void OnCloseComplete()
+    {
+        DialogueManager.Instance.AddActionDialogue("I'll close this just in case...");
     }
 }

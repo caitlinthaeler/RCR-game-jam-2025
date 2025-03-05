@@ -17,16 +17,15 @@ public class StatueInteractable : MonoBehaviour, IInteractable
         Debug.Log("Interacting with the Statue.");
         if (!statueSatisfied)
         {
-            foreach (var item in InventoryHandler.Instance.items)
+            for (int i = 0; i < InventoryHandler.Instance.items.Count; i++)
             {
-                ItemObject itemObject = item;
-                Debug.Log($"item name: {itemObject.itemName}");
+                ItemObject itemObject = InventoryHandler.Instance.items[i];
                 if (itemObject != null && itemObject.itemName == "Song Book")
                 {
-                    Debug.Log("book is trying to be returned");
+                    InventoryHandler.Instance.RemoveItem(i);
                     statueSatisfied = true;
-                    Sing();
                     StatueManager.Instance.RevealStone();
+                    Sing();
                     return;
                 }
             }

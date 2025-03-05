@@ -2687,7 +2687,7 @@ Transform:
   m_GameObject: {fileID: 521535991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -95.9, y: 17.9, z: 341.1}
+  m_LocalPosition: {x: -111.5, y: 18.7, z: 340}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4479,6 +4479,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &859587026 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6632633547326591327, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
+  m_PrefabInstance: {fileID: 4367311563592842288}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &873196609
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10515,7 +10520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stoneManager: {fileID: 1772297875}
   bellManager: {fileID: 809100117}
-  statueManager: {fileID: 0}
+  statueManager: {fileID: 8715090205988582530}
   bellTowerDoorManager: {fileID: 2022542471}
   dialogueManager: {fileID: 609000248}
   NarraratorName: Narrarator
@@ -12357,6 +12362,38 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 10, y: 0, z: 10}
   m_Center: {x: 0, y: 0, z: 0.0000009536743}
+--- !u!1 &1688239498
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1688239499}
+  m_Layer: 0
+  m_Name: DoorHinge
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1688239499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688239498}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 18.26, y: -3.1300006, z: 342.47}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2022542469}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1719437142 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 470643302537318476, guid: cfa723e644aea4faf9db30e63328b4f4, type: 3}
@@ -13810,10 +13847,10 @@ GameObject:
   - component: {fileID: 2022542468}
   - component: {fileID: 2022542467}
   - component: {fileID: 2022542466}
-  - component: {fileID: 2022542465}
   - component: {fileID: 2022542471}
   - component: {fileID: 2022542470}
   - component: {fileID: 2022542472}
+  - component: {fileID: 2022542473}
   m_Layer: 8
   m_Name: BellTowerDoor
   m_TagString: Untagged
@@ -13821,28 +13858,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &2022542465
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022542464}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3e1bd86feb1824313936f1049a92b723, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!65 &2022542466
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13925,12 +13940,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022542464}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 19.92, y: -3.1300006, z: 342.47}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.6599998, y: 0, z: 0}
   m_LocalScale: {x: 3, y: 6, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1688239499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2022542470
 MonoBehaviour:
@@ -13944,6 +13959,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a7b7b737d7a4872977b51bac6ef8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationAnimator: {fileID: 2022542473}
   audioSource: {fileID: 2022542472}
   doorUnlockingSound: {fileID: 8300000, guid: d48de0a7ec879481387b60a73ceb5d4b, type: 3}
   doorCreakingSound: {fileID: 8300000, guid: e8e92506e211c4a81b06a68d51260033, type: 3}
@@ -14056,6 +14072,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2022542473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022542464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d2cff19b96314a85b8b4c421bd7996e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pivotPoint: {fileID: 1688239499}
+  rotationDegrees: 130
+  rotationTime: 3.5
+  rotationAxis: {x: 0, y: 1, z: 0}
 --- !u!114 &2047979024 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 470643302537318476, guid: cfa723e644aea4faf9db30e63328b4f4, type: 3}
@@ -15603,6 +15635,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: bookStatue
       objectReference: {fileID: 0}
+    - target: {fileID: 1423668497036813761, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
+      propertyPath: stoneAnimator
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7236773786878805611, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.239
@@ -15643,11 +15679,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6630076069316253555, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6632633547326591327, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4367311563592842295}
   m_SourcePrefab: {fileID: 100100000, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
+--- !u!114 &4367311563592842295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859587026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4eceaf04e1cf48659344c19194dd766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 0, y: 1, z: 0}
+  moveTime: 4
 --- !u!4 &4717952521439295124
 Transform:
   m_ObjectHideFlags: 0
@@ -16882,6 +16936,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5664090807351851620, guid: ec0b0b23c5ee542adaa50e6468b9effe, type: 3}
   m_PrefabInstance: {fileID: 8649434463625323392}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8715090205988582530 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1423668497036813761, guid: 441fe23694bcc4341ad6dd0869d34154, type: 3}
+  m_PrefabInstance: {fileID: 4367311563592842288}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fd805bb9c5345a283b6f0cedc1be99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8974419091589044272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17055,7 +17120,7 @@ SceneRoots:
   - {fileID: 5395659661904815697}
   - {fileID: 1228524542}
   - {fileID: 134734203}
-  - {fileID: 2022542469}
+  - {fileID: 1688239499}
   - {fileID: 6805249372788385910}
   - {fileID: 63541220523558946}
   - {fileID: 177826863}

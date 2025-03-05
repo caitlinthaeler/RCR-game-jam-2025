@@ -7,7 +7,17 @@ public class StatueManager : MonoBehaviour
     public event Action OnBookReturned;
     public GameObject stone;
     public GameObject openBookObj;
-    public Animator stoneAnimator;
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
     void Start()
     {
         openBookObj.SetActive(false);
@@ -16,15 +26,18 @@ public class StatueManager : MonoBehaviour
     public void RevealStone()
     {
         openBookObj.SetActive(true);
-        if (stoneAnimator)
-        {
-            stoneAnimator.Play("StatueRevealStone");
-        }
-        else 
-        {
-            Vector3 stonePos = stone.transform.position;
-            stone.transform.position = new Vector3(stonePos.x, stonePos.y, stonePos.z+0.07f);
-            stone.GetComponent<BoxCollider>().enabled = true;
-        }
+        stone.GetComponent<MovementAnimator>().StartMovement(OnRevealComplete);
+        // else 
+        // {
+        //     Vector3 stonePos = stone.transform.position;
+        //     stone.transform.position = new Vector3(stonePos.x, stonePos.y, stonePos.z+0.07f);
+        //     stone.GetComponent<BoxCollider>().enabled = true;
+        // }
+    }
+
+    public void OnRevealComplete()
+    {
+        Debug.Log("animation complete");
+        stone.GetComponent<BoxCollider>().enabled = true;
     }
 }

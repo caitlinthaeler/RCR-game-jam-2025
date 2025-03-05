@@ -124,8 +124,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemObject: {fileID: 11400000, guid: 614353f39500040a48585ca599d082b5, type: 2}
-  audioSource: {fileID: 0}
-  lightingCandleSound: {fileID: 0}
+  audioSource: {fileID: 3014561701622943354}
+  lightingCandleSound: {fileID: 8300000, guid: c58a4d97c4a274ed59200c2449bbd8b0, type: 3}
   blowingCandleOutSound: {fileID: 0}
 --- !u!82 &3014561701622943354
 AudioSource:

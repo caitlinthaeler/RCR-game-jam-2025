@@ -23678,7 +23678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a7b7b737d7a4872977b51bac6ef8ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationAnimator: {fileID: 2022542473}
+  rotationAnimator: {fileID: 0}
   audioSource: {fileID: 2022542472}
   doorUnlockingSound: {fileID: 8300000, guid: d48de0a7ec879481387b60a73ceb5d4b, type: 3}
   doorCreakingSound: {fileID: 8300000, guid: e8e92506e211c4a81b06a68d51260033, type: 3}
@@ -25565,6 +25565,7 @@ GameObject:
   - component: {fileID: 225257441798487563}
   - component: {fileID: 984444197760926331}
   - component: {fileID: 8131492878104134213}
+  - component: {fileID: 8131492878104134214}
   m_Layer: 0
   m_Name: Box02
   m_TagString: Untagged
@@ -26982,6 +26983,14 @@ PrefabInstance:
       propertyPath: stone
       value: 
       objectReference: {fileID: 2555121801087987082}
+    - target: {fileID: 3331565789752924935, guid: 4dfbfff7227164cf391c204be63c2037, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 8486424989242978488}
+    - target: {fileID: 3331565789752924935, guid: 4dfbfff7227164cf391c204be63c2037, type: 3}
+      propertyPath: stoneRisingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: b3b87f850d70742d785b287ff38e486a, type: 3}
     - target: {fileID: 8795832172148065310, guid: 4dfbfff7227164cf391c204be63c2037, type: 3}
       propertyPath: m_Name
       value: GranitePedastal
@@ -27105,6 +27114,7 @@ GameObject:
   - component: {fileID: 2483832304742842327}
   - component: {fileID: 7938702955041329092}
   - component: {fileID: 1185929709052339394}
+  - component: {fileID: 7938702955041329093}
   m_Layer: 0
   m_Name: ChamferBo1
   m_TagString: Untagged
@@ -30016,6 +30026,7 @@ GameObject:
   - component: {fileID: 5074778107144844680}
   - component: {fileID: 3018222273892679900}
   - component: {fileID: 8391301660548066318}
+  - component: {fileID: 8391301660548066319}
   m_Layer: 0
   m_Name: ChamferBo0
   m_TagString: Untagged
@@ -30375,6 +30386,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2757623980982314965}
   m_Mesh: {fileID: 9166968058755077371, guid: e89c8ca63ff4343edb47e0b1930e86df, type: 3}
+--- !u!64 &7938702955041329093
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2757623980982314965}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 9166968058755077371, guid: e89c8ca63ff4343edb47e0b1930e86df, type: 3}
 --- !u!1 &7942607114217326341
 GameObject:
   m_ObjectHideFlags: 0
@@ -30491,6 +30524,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8131492878104134214
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419739107042612758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7390745476888700207, guid: e89c8ca63ff4343edb47e0b1930e86df, type: 3}
 --- !u!1 &8164078558099393619
 GameObject:
   m_ObjectHideFlags: 0
@@ -30698,6 +30753,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8391301660548066319
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7177928220382625095}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2872154446535129292, guid: e89c8ca63ff4343edb47e0b1930e86df, type: 3}
 --- !u!4 &8423403095431484124
 Transform:
   m_ObjectHideFlags: 0
@@ -31246,6 +31323,7 @@ GameObject:
   - component: {fileID: 2370551476602736824}
   - component: {fileID: 3920143721492159901}
   - component: {fileID: 3467961834901687685}
+  - component: {fileID: 8734120681876228678}
   m_Layer: 0
   m_Name: ChamferBox
   m_TagString: Untagged
@@ -31253,6 +31331,28 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8734120681876228678
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8734120681876228677}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5367818309980479320, guid: e89c8ca63ff4343edb47e0b1930e86df, type: 3}
 --- !u!4 &8804424097050162703
 Transform:
   m_ObjectHideFlags: 0

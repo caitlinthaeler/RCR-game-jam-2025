@@ -6829,7 +6829,7 @@ Transform:
   m_GameObject: {fileID: 521535991}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -74.6, y: 17.8, z: 344.7}
+  m_LocalPosition: {x: -139.7, y: 17.8, z: 346.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11076,11 +11076,12 @@ MonoBehaviour:
   - nextBell: 1
   - nextBell: 2
   - nextBell: 3
-  - nextBell: 4
-  - nextBell: 5
-  - nextBell: 6
-  - nextBell: 7
   - nextBell: 8
+  - nextBell: 5
+  - nextBell: 8
+  - nextBell: 8
+  - nextBell: 8
+  stone: {fileID: 1468531603}
 --- !u!4 &809100118
 Transform:
   m_ObjectHideFlags: 0
@@ -24011,6 +24012,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5754789717853328666, guid: 3ead3817fa4514656abdab8ad7126602, type: 3}
   m_PrefabInstance: {fileID: 1455082431}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1468531603 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1045777636713299057, guid: 12d4cab64c2404ce3bba1a2f394c0908, type: 3}
+  m_PrefabInstance: {fileID: 1338047886}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1470365326
 GameObject:

@@ -11076,10 +11076,10 @@ MonoBehaviour:
   - nextBell: 1
   - nextBell: 2
   - nextBell: 3
-  - nextBell: 8
+  - nextBell: 4
   - nextBell: 5
-  - nextBell: 8
-  - nextBell: 8
+  - nextBell: 6
+  - nextBell: 7
   - nextBell: 8
   stone: {fileID: 1468531603}
 --- !u!4 &809100118
